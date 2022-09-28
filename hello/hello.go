@@ -12,7 +12,8 @@ func main() {
 
     //fmt.Println("Hello, World!")
     //message := greetings.Hello("Gladys")
-    message, err := greetings.Hello("")
+    //message, err := greetings.Hello("")
+    message, err := greetings.Hello("Gladys")
 
     if err != nil {
         log.Fatal(err)
