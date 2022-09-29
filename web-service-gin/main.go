@@ -12,13 +12,6 @@ type album struct {
     Price float64 `json:"price"`
 }
 
-type newAlbum struct {
-    ID string `json:"id"`
-    Title string `json:"title"`
-    Artist string `json:"artist"`
-    Price float64 `json:"price"`
-}
-
 var albums = []album{
     {ID: "1", Title: "Blue Train", Artist: "John Coltrane", Price: 56.99},
     {ID: "2", Title: "Jeru", Artist: "Gerry Mulligan", Price: 17.99},
@@ -40,11 +33,16 @@ func getAlbumById(c *gin.Context) {
     c.IndentedJSON(http.StatusNotFound, gin.H{"message":"album not found"})
 }
 
-func postAlbums(c *gin.Context){
-    var newALbum album
-    if err := c.BindJSON(&newALbum); err != nil {
+func postAlbums(c *gin.Context) {
+    var newAlbum album
+
+    // Call BindJSON to bind the received JSON to
+    // newAlbum.
+    if err := c.BindJSON(&newAlbum); err != nil {
         return
     }
+
+    // Add the new album to the slice.
     albums = append(albums, newAlbum)
     c.IndentedJSON(http.StatusCreated, newAlbum)
 }
