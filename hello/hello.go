@@ -4,6 +4,7 @@ import (
     "fmt"
     "log"
     "example.com/greetings"
+    "github.com/google/go-cmp/cmp"
 )
 
 func main() {
@@ -22,4 +23,7 @@ func main() {
 
     //fmt.Println(message)
     fmt.Println(messages)
+
+    fmt.Println(cmp.Diff("Hello World", "Hello Go"))
+
 }
