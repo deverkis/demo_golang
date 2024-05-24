@@ -23,7 +23,7 @@ func main() {
 	pow(2, 4, 8)
 	testSwitch()
 	testSwitch2()
-  testDefer()
+	testDefer()
 
 }
 
@@ -65,8 +65,8 @@ func testSwitch2() {
 	}
 }
 
-func testDefer(){
-  defer fmt.Println("world")
+func testDefer() {
+	defer fmt.Println("world")
 
 	fmt.Println("hello")
 }
